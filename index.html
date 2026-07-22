@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuervo Carmesí | Catálogo</title>
+    <style>
+
+        :root {
+            --negro-fondo: #0a0a0a;
+            --carmesi-oscuro: #5a0b0d; 
+            --crema-texto: #f4ecd8; 
+            --papel-viejo: #d4c4a8; 
+            --tinta-oscura: #1a1a1a;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+        
+                body {
+            background-color: var(--negro-fondo);
+            color: var(--crema-texto);
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+
+        main {
+            flex: 1;
+        }
+
+
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+        }
+
+        header {
+            background-color: var(--carmesi-oscuro);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid var(--crema-texto);
+        }
+        
+        #logo-header {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #222; /* Este es el círculo donde irá tu logo */
+            border: 1px solid var(--crema-texto);
+            object-fit: cover;
+        }
+        
+                header h1 { 
+            margin: 0; 
+            font-family: 'Alex Brush', cursive; 
+            font-size: 3.2rem; 
+            font-weight: normal;
+        }
+        
+        /* --- HISTORIA (PERGAMINO) --- */
+        .historia-section {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .pergamino {
+            background-color: var(--papel-viejo);
+            color: var(--tinta-oscura);
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 50px rgba(90, 11, 13, 0.3), 5px 5px 15px rgba(0,0,0,0.5);
+            /* Textura de rayas de libreta antigua */
+            background-image: repeating-linear-gradient(transparent, transparent 24px, rgba(0,0,0,0.05) 24px, rgba(0,0,0,0.05) 25px);
+        }
+
+        .pergamino h2 {
+            text-align: center;
+            color: var(--carmesi-oscuro);
+            border-bottom: 1px solid var(--tinta-oscura);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .pergamino p {
+            font-size: 1.2rem;
+            line-height: 25px; /* Alineado exacto con las rayas del fondo */
+            text-align: justify;
+        }
+
+        /* --- CATEGORÍAS (CUADROS CON IMAGEN) --- */
+        .categorias-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px 40px 20px;
+        }
+
+        .categoria-card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #1a1a1a;
+            border: 1px solid var(--carmesi-oscuro);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            display: block;
+            text-decoration: none;
+        }
+
+        .categoria-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .categoria-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.75); /* Franja oscura abajo para que se lea el texto */
+            color: var(--crema-texto);
+            text-align: center;
+            padding: 12px 0;
+            z-index: 2;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        
+                /* --- BOTÓN LLAMATIVO DEL COFRE --- */
+        .seccion-alerta {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .boton-latido {
+            display: inline-block;
+            background-color: var(--carmesi-oscuro);
+            color: var(--crema-texto);
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 30px;
+            border: 2px solid var(--crema-texto);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(90, 11, 13, 0.8);
+            animation: latido 2s infinite; /* Aquí está la magia que lo hace vibrar */
+            transition: background-color 0.3s;
+        }
+
+        .boton-latido:hover {
+            background-color: #3a0608; /* Se oscurece un poco al pasar el dedo/mouse */
+        }
+
+        @keyframes latido {
+            0% { transform: scale(1); box-shadow: 0 0 10px var(--carmesi-oscuro); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px #ff1e27; } /* Brillo rojo intenso */
+            100% { transform: scale(1); box-shadow: 0 0 10px var(--carmesi-oscuro); }
+        }
+
+        /* --- FOOTER (LO MORADO/CARMESÍ DE ABAJO) --- */
+        footer {
+            background-color: var(--carmesi-oscuro);
+            color: var(--crema-texto);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 2px solid var(--crema-texto);
+        }
+        
+        footer p { margin: 5px 0; }
+    </style>
+</head>
+<body>
+  
+    <header>
+      <img id="logo-header" src="logo.png" alt="Logo Cuervo">
+        <h1>Cuervo Carmesí</h1>
+    </header>
+
+    <section class="historia-section">
+        <div class="pergamino">
+            <h2>El Origen</h2>
+            <p>
+                Cuenta la leyenda que los cuervos son recolectores incansables de tesoros perdidos...
+            </p>
+            <p>
+                Cuervo Carmesí es una marca independiente de aretes artesanales donde creamos accesorios hechos 100% a mano.
+                El nombre nace porque, al igual que los cuervos, nos encanta coleccionar detalles llamativos y especiales.
+            </p>
+        </div>
+    </section>
+    
+    <div class="seccion-alerta">
+        <a href="cofre.html" class="boton-latido">
+            🗝️ DESCUBRE EL COFRE DEL CUERVO <br>
+            <small style="font-size: 0.8rem; font-family: 'Cormorant Garamond', serif;">(Sistema de Apartados y Políticas)</small>
+        </a>
+    </div>
+
+
+     <main class="categorias-container">
+        
+  <!--      <a href="especiales.html" class="categoria-card">
+            <img src="especiales.png" alt="Especiales">
+            <div class="categoria-overlay">Especiales del Cuervo</div>
+          </a> -->
+          
+        <a href="comida.html" class="categoria-card">
+            <img src="comida.png" alt="Comida">
+            <div class="categoria-overlay">Colección Comida</div>
+        </a>
+
+    </main>
+
+    <footer>
+        <p>Instagram: cuervo.carmesii</p>
+        <p>Tiktok: cuervo.carmesii</p>
+        <p><small>&copy; 2026 Cuervo Carmesí. Todos los derechos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

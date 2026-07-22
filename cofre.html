@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Cofre del Cuervo | Políticas</title>
+    <style>
+        :root {
+            --negro-fondo: #0a0a0a;
+            --carmesi-oscuro: #5a0b0d; 
+            --crema-texto: #f4ecd8; 
+            --papel-viejo: #d4c4a8; 
+            --tinta-oscura: #1a1a1a;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            background-color: var(--negro-fondo);
+            color: var(--crema-texto);
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 { font-family: 'Cinzel', serif; }
+
+        header {
+            background-color: var(--carmesi-oscuro);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid var(--crema-texto);
+        }
+        
+        #logo-header {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #222; 
+            border: 1px solid var(--crema-texto);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: var(--crema-texto);
+            font-size: 24px;
+        }
+
+        header h1 { margin: 0; font-style: italic; font-size: 2rem; }
+
+        main { flex: 1; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+
+        .pergamino {
+            background-color: var(--papel-viejo);
+            color: var(--tinta-oscura);
+            max-width: 700px;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 50px rgba(90, 11, 13, 0.3), 5px 5px 15px rgba(0,0,0,0.8);
+            background-image: repeating-linear-gradient(transparent, transparent 24px, rgba(0,0,0,0.05) 24px, rgba(0,0,0,0.05) 25px);
+        }
+
+        .pergamino h2 {
+            text-align: center;
+            color: var(--carmesi-oscuro);
+            border-bottom: 2px solid var(--tinta-oscura);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .pergamino p, .pergamino ul {
+            font-size: 1.2rem;
+            line-height: 25px;
+        }
+
+        .pergamino ul { padding-left: 20px; }
+        .pergamino li { margin-bottom: 10px; }
+
+        .alerta-penalizacion {
+            background-color: rgba(90, 11, 13, 0.1);
+            border-left: 4px solid var(--carmesi-oscuro);
+            padding: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .boton-volver {
+            margin-top: 30px;
+            display: inline-block;
+            background-color: transparent;
+            color: var(--crema-texto);
+            border: 1px solid var(--crema-texto);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            transition: 0.3s;
+        }
+
+        .boton-volver:hover {
+            background-color: var(--crema-texto);
+            color: var(--negro-fondo);
+        }
+
+        footer {
+            background-color: var(--carmesi-oscuro);
+            color: var(--crema-texto);
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid var(--crema-texto);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" id="logo-header">🔙</a> 
+        <h1>Cuervo Carmesí</h1>
+    </header>
+
+    <main>
+        <div class="pergamino">
+            <h2>🗝️ El Cofre del Cuervo 🗝️</h2>
+            <p>¿Te enamoraste de un par de aretitos pero quieres esperar a ver qué más sale antes de pagar un envío? ¡Abre tu propio Cofre del Cuervo! Es la forma perfecta de ir cazando tus tesoros poco a poco.</p>
+            
+            <h3>¿Cómo funciona?</h3>
+            <ul>
+                <li><strong>El primer hallazgo:</strong> Cuando compres tu primer par de aretes y quieras asegurar que no se lo lleven, elige la opción "Abrir Cofre" al hacer tu pedido. En ese momento, solo pagas el valor de tus piezas.</li>
+                <li><strong>Acumula tu botín:</strong> ¡Tu cofre está listo! Yo guardaré tus tesoros a salvo en una cajita con tu nombre. En los siguientes días o semanas, si te enamoras de más diseños, los compras y los voy agregando a tu mismo cofre.</li>
+                <li><strong>El vuelo final:</strong> Cuando decidas que ya tienes suficientes aretitos, me mandas un mensajito diciendo <em>"¡Ya quiero cerrar mi cofre!"</em>. Hasta ese momento depositas el costo del envío, empaco tu pedido y programo tu recolección para nuestro siguiente día de envíos.</li>
+            </ul>
+
+            <h3>📜 Las Reglas del Nido</h3>
+            <ul>
+                <li>Ve acumulando tus aretes favoritos pieza por pieza sin preocuparte por el envío inmediato.</li>
+                <li>Tu cofre puede permanecer abierto hasta por <strong>50 días </strong>. </li>
+            </ul>
+
+            <div class="alerta-penalizacion">
+                ⚠️ Nota importante: Al abrir un cofre aceptas nuestras políticas. En caso de requerir la cancelación de la caja o de alguna pieza ya apartada, se aplicará una penalización del 30% sobre el total abonado por concepto de retención de inventario.
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; font-style: italic;">
+                ¡Gracias por apoyar el diseño hecho a mano y valorar el tiempo detrás de cada creación! 💕
+            </p>
+        </div>
+
+        <a href="index.html" class="boton-volver">← Volver al Nido</a>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2026 Cuervo Carmesí. Todos los derechos reservados.</small></p>
+    </footer>
+
+</body>
+</html>

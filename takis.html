@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Arete | Cuervo Carmesí</title>
+    <style>
+        :root {
+            --negro-fondo: #0a0a0a;
+            --carmesi-oscuro: #5a0b0d; 
+            --crema-texto: #f4ecd8; 
+            --tinta-oscura: #1a1a1a;
+            --gris-claro: #cccccc;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            background-color: var(--negro-fondo);
+            color: var(--crema-texto);
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Cinzel', serif; }
+
+        header {
+            background-color: var(--carmesi-oscuro);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid var(--crema-texto);
+        }
+        
+        #btn-volver {
+            text-decoration: none;
+            color: var(--crema-texto);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        #btn-volver:hover { transform: scale(1.1); }
+
+        header h1 { margin: 0; font-size: 2rem; font-style: italic; }
+
+        main { 
+            flex: 1; 
+            padding: 40px 20px; 
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .producto-contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background-color: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+        }
+
+        .galeria {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .foto-principal {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid var(--carmesi-oscuro);
+            margin-bottom: 15px;
+            background-color: #222;
+        }
+
+        .miniaturas {
+            display: flex;
+            gap: 10px;
+        }
+
+        .miniaturas img {
+            width: calc(33.333% - 7px);
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #333;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .miniaturas img:hover {
+            border-color: var(--carmesi-oscuro);
+            filter: brightness(1.2);
+        }
+
+        .info-arete {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-titulo {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: var(--crema-texto);
+            border-bottom: 1px dashed #333;
+            padding-bottom: 10px;
+        }
+
+        .info-precio {
+            font-size: 2rem;
+            color: #ff4d54;
+            margin: 10px 0 20px 0;
+        }
+
+        .info-desc {
+            font-size: 1.2rem;
+            color: var(--gris-claro);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .detalles-tecnicos {
+            background-color: #0a0a0a;
+            border-left: 3px solid var(--carmesi-oscuro);
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+
+        .detalles-tecnicos h4 {
+            margin: 0 0 10px 0;
+            color: var(--carmesi-oscuro);
+            font-size: 1.2rem;
+        }
+
+        .detalles-tecnicos ul {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--gris-claro);
+            font-size: 1.1rem;
+        }
+
+        .detalles-tecnicos li { margin-bottom: 8px; }
+
+        .btn-comprar-dm {
+            background-color: var(--carmesi-oscuro);
+            color: var(--crema-texto);
+            text-align: center;
+            padding: 15px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid var(--crema-texto);
+            transition: all 0.3s;
+            margin-top: auto; /* Empuja el botón hasta abajo */
+        }
+
+        .btn-comprar-dm:hover {
+            background-color: #3a0608;
+            box-shadow: 0 0 15px rgba(90, 11, 13, 0.8);
+            transform: scale(1.02);
+        }
+
+        footer {
+            background-color: var(--carmesi-oscuro);
+            color: var(--crema-texto);
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid var(--crema-texto);
+        }
+        
+        /* Fondo oscuro del zoom */
+.modal-zoom {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 9999; /* Por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Fondo casi negro */
+    justify-content: center;
+    align-items: center;
+}
+
+/* La imagen expandida */
+.img-zoom-contenido {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="comida.html" id="btn-volver">🔙</a> 
+        <h1>Cuervo Carmesí</h1>
+    </header>
+
+    <main>
+        <div class="producto-contenedor">
+            <div class="galeria">
+                <!-- Foto Grande -->
+                <img src="takipar.jpg" alt="Vista principal" class="foto-principal" onclick="abrirZoom(this.src)" style="cursor: zoom-in;">
+                
+                <!-- Fotos Chiquitas (Miniaturas) -->
+                <div class="miniaturas">
+                    <img src="taki.jpg" alt="Detalle 1" onclick="abrirZoom(this.src)" style="cursor: zoom-in;">
+                </div>
+            </div>
+
+            <div class="info-arete">
+                <h2 class="info-titulo">Takis</h2>
+                <div class="info-precio">$65 MXN</div>
+                
+                <p class="info-desc">
+                    Estos aretes están moldeados y detallados artesanalmente, logrando realismo con ese tono rojo intenso antojable. Gracias a su diseño estratégicamente delgado, son tan ligeros que podrás llevar tu antojo favorito todo el día con total comodidad.
+                </p>
+                
+                                <div class="detalles-tecnicos">
+                    <h4>Ficha del Tesoro 📜</h4>
+                    <ul>
+                        <li><strong>Materiales:</strong> Porcelana fría moldeada y pintada totalmente a mano. Ganchos de acero inoxidable (hipoalergénicos).</li>
+                        <li><strong>Medidas:</strong> 7.5 cm de largo (incluido el gancho) x 1 cm de ancho. Al ser una pieza artesanal, las medidas no serán siempre exactas, pueden ser unos milimetros más grandes o más pequeñas.</li>
+                        <li><strong>Cuidados:</strong> Piezas delicadas. Evitar el contacto directo con agua, perfumes o humedad prolongada (¡no los dejes en el baño!). Guardar en un lugar seco y protegido de golpes.</li>
+                    </ul>
+                </div>
+
+                
+                <a href="https://www.instagram.com/cuervo.carmesii?igsh=MWQ2MWp5Y3luZ2djZw==" target="_blank" class="btn-comprar-dm">
+                    Pedir por Instagram 💌
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p><small>&copy; 2026 Cuervo Carmesí. Todos los derechos reservados.</small></p>
+    </footer>
+    
+<div id="modalZoom" class="modal-zoom" onclick="cerrarZoom()">
+    <img id="imgZoomed" class="img-zoom-contenido">
+</div>
+
+<script>
+    function abrirZoom(src) {
+        document.getElementById("modalZoom").style.display = "flex";
+        document.getElementById("imgZoomed").src = src;
+    }
+
+    function cerrarZoom() {
+        document.getElementById("modalZoom").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
